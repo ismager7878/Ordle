@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordle</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/hhy2sgg.css">
+    
+</head>
+<body>
+    <h1>Ordle</h1>
+    <p>Wordle på dansk</p>
+    
+    <section id="game-section">
+        <div class="grid-container"> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
+            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
+         </div>
+         <div class="popUp" id="win">
+             <h2>DU VANDT!!!!</h2>
+             <p>Woooo Hooooo</p>
+         </div>  
+         <div class="popUp" id="lose">
+            <h2>DU TABTE!!!!</h2>
+            <p>Kom igen!!</p>
+            <p id="gOrd"></p>
+        </div>   
+        <div class="popUp" id="wrong">
+            <h2 style="margin: auto;">Det ikke et ord!!!</h2>
+        </div>   
+    </section>
+    <script src="lzw_encoder.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

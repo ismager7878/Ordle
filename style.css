@@ -1,0 +1,76 @@
+body{
+    text-align: center;
+    font-family: montserrat, sans-serif;
+}
+.grid-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    aspect-ratio: 83/100;
+    width: 320px;
+}
+.grid-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    width: 17.5%;
+    border: 2px solid #dee1e9;
+    background: #fbfcff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+#game-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.word-in{
+    background: none;
+    border: none;
+    width: 95%;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #393e4c;
+    text-transform: uppercase;
+}
+.word-in:focus{
+    outline: none;
+    caret-color: transparent;
+}
+.popUp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    height: 200px;
+    width: 400px;
+    border: 6px solid #dee1e9;
+    background: #fbfcff;
+    border-radius: 20px;
+}
+.popUp > p{
+    margin-top: 3px;
+}
+.popUp > h2{
+    margin-bottom: 3px;
+}
+#win{
+    display: none;
+}
+#lose{
+    display: none;
+}
+#wrong{
+    width: 250px;
+    height: 100px;
+    display: none;
+}
+@media(max-width: 336px){
+    .grid-item{
+        width: 17.2%;
+    }
+}
