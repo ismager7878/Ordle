@@ -17,7 +17,7 @@ var wrong = document.getElementById("wrong")
 
 
 var client = new XMLHttpRequest();
-client.open('GET', '/OrdelListe.txt');
+client.open('GET', '/OrdelListe.csv');
 client.onreadystatechange = function() {
   words = client.responseText.split("\n")
   word = words[Math.floor(Math.random()*words.length)]
