@@ -68,6 +68,7 @@ function alphaOnlyAndShiftInput(event) {
         }
     }
     checkWin();
+    return ((key >= 65 && key <= 90) || (key == 219 || key == 222 || key == 186) || key == 8 || key == 'Enter')
 };
 function popUpTimer(){
     displayWrong = true
