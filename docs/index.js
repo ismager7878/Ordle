@@ -22,8 +22,8 @@ client.open('GET', 'OrdelListe.csv');
 client.onreadystatechange = function() {
   words = client.responseText.split("\n")
   word = words[Math.floor(Math.random()*words.length)]
-  console.log(word)
-  console.log(words)
+//   console.log(word)
+//   console.log(words)
 }
 client.send();
 
@@ -35,11 +35,10 @@ function alphaOnlyAndShiftInput(event) {
         if((key >= 65 && key <= 90) || (key == 219 || key == 222 || key == 186)){
             if(currIn < 5){
                 
-                console.log(currIn + " pressed")
+                //console.log(currIn + " pressed")
                 gridFields[(currIn + currLine*5)].style.borderColor = "#333D47"
                 inputFields[(currIn + currLine*5)].focus()
                 currIn++;
-                //console.log(inputFields[currIn])
             }   
         }
         if(key == 8 && currIn > 0){
@@ -54,12 +53,12 @@ function alphaOnlyAndShiftInput(event) {
                     if(!checkWin()){
                         document.getElementById("lose").style.display = "flex"
                         done = true
-                        document.getElementById("gOrd").innerHTML = word
+                        document.getElementById("gOrd").innerHTML = "Ord at gætte: " + word
                     }
                 }else{
                     currLine++
                     currIn = 0
-                    console.log("nex line: " + currLine)
+                    //console.log("nex line: " + currLine)
                 }
                 
             }else{
@@ -100,7 +99,7 @@ function checkWord(word){
     corLettersFound = []
     var word = word.toUpperCase()
     var thisWord = this.word.toUpperCase()
-    console.log(word)
+    //console.log(word)
     words.forEach(element => {
         if(word == element.toUpperCase()){
             hasMatch = true
@@ -113,7 +112,7 @@ function checkWord(word){
                 setCorrect(i)
             }
             else if(thisWord.includes(word[i])){
-                console.log("contained " + word[i])
+                //console.log("contained " + word[i])
                 setContains(i)
             }
             else{
@@ -127,7 +126,7 @@ function checkWord(word){
         var letter = inputFields[lettersFound[i]].value
         var letterCount = getLenght(thisWord, letter)
         var foundLetterCount = getLenght(corLettersFound, letter)
-        console.log("word has " + letter + "  " + letterCount + " times")
+        //console.log("word has " + letter + "  " + letterCount + " times")
         if(letterCount == foundLetterCount){
             gridFields[lettersFound[i]].style.backgroundColor = "#333D47"
             gridFields[lettersFound[i]].style.borderColor = "#333D47"
@@ -135,7 +134,7 @@ function checkWord(word){
         }
         var corrLetterCount = getLenght(lettersCorrected, letter)
         if(corrLetterCount + foundLetterCount == letterCount){
-            console.log(letter + " was wrong")
+            //console.log(letter + " was wrong")
             gridFields[lettersFound[i]].style.backgroundColor = "#333D47"
             gridFields[lettersFound[i]].style.borderColor = "#333D47"
             continue
@@ -149,7 +148,7 @@ function getLenght(array, item){
     var count = 0 
     for(var i = 0; i < array.length; i++){
         var let = array[i]
-        console.log(i + " in " + array + " was " + let)
+        //console.log(i + " in " + array + " was " + let)
         if(let.toUpperCase() == item.toUpperCase()){
             count++
         }
@@ -167,7 +166,7 @@ function setCorrect(letter){
 }
 
 function setContains(letter){
-    console.log(letter + ' contained')
+    //console.log(letter + ' contained')
     var let = inputFields[letter + currLine*5].value
     lettersFound.push(letter + currLine*5);
     gridFields[letter + currLine*5].style.backgroundColor = "#B8D04E"
@@ -185,7 +184,7 @@ var myTimer = setInterval( function() {
     if(displayWrong){
         var newDate = new Date()
         wrong.style.display = "flex"
-        console.log(newDate.getTime()-time)
+        //console.log(newDate.getTime()-time)
         if(newDate.getTime()-time >= wrongTime){
             wrong.style.display = "none"
             displayWrong = false
