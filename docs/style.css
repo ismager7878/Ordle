@@ -1,6 +1,8 @@
 body{
     text-align: center;
     font-family: montserrat, sans-serif;
+    background-color: #1D3549;
+    color: #EBFEFF;
 }
 .grid-container{
     display: flex;
@@ -15,9 +17,9 @@ body{
     align-items: center;
     height: 56px;
     width: 56px;
-    border: 2px solid #dee1e9;
-    background: #fbfcff;
-    border-radius: 5px;
+    border: 2px solid #b0bac5;
+    background: #D0D6DD;
+    border-radius: 1px;
     display: flex;
     align-items: center;
 }

@@ -6,6 +6,7 @@ var currLine = 0;
 var words
 var word
 var lettersFound = []
+var corLettersFound = []
 var lettersCorrect = 0;
 
 var done = false
@@ -17,7 +18,7 @@ var wrong = document.getElementById("wrong")
 
 
 var client = new XMLHttpRequest();
-client.open('GET', '/OrdelListe.csv');
+client.open('GET', 'OrdelListe.csv');
 client.onreadystatechange = function() {
   words = client.responseText.split("\n")
   word = words[Math.floor(Math.random()*words.length)]
@@ -27,7 +28,7 @@ client.onreadystatechange = function() {
 client.send();
 
 function alphaOnlyAndShiftInput(event) {
-    var key = event.keyCode;
+    var key = event.keyCode
     console.log(key)
     console.log("current in: " + currIn);
     if(!done){
@@ -35,7 +36,7 @@ function alphaOnlyAndShiftInput(event) {
             if(currIn < 5){
                 
                 console.log(currIn + " pressed")
-                gridFields[(currIn + currLine*5)].style.borderColor = "#a8adc2"
+                gridFields[(currIn + currLine*5)].style.borderColor = "#333D47"
                 inputFields[(currIn + currLine*5)].focus()
                 currIn++;
                 //console.log(inputFields[currIn])
@@ -44,7 +45,7 @@ function alphaOnlyAndShiftInput(event) {
         if(key == 8 && currIn > 0){
                 currIn--
                 inputFields[(currIn + currLine*5)].focus()
-                gridFields[(currIn + currLine*5)].style.borderColor = "#dee1e9"
+                gridFields[(currIn + currLine*5)].style.borderColor = "#7D8EA1"
         }
         if(event.key == 'Enter' && currIn == 5 && currLine < 6){
             lettersCorrect = 0
@@ -67,8 +68,7 @@ function alphaOnlyAndShiftInput(event) {
             
         }
     }
-    checkWin()
-    return ((key >= 65 && key <= 90) || (key == 8 || key == 219 || key == 222 || key == 186) && !done);
+    checkWin();
 };
 function popUpTimer(){
     displayWrong = true
@@ -96,6 +96,8 @@ function getWord(){
 
 function checkWord(word){
     var hasMatch = false
+    lettersFound = []
+    corLettersFound = []
     var word = word.toUpperCase()
     var thisWord = this.word.toUpperCase()
     console.log(word)
@@ -120,27 +122,63 @@ function checkWord(word){
         }
         
     }
+    var lettersCorrected = []
+    for(var i = 0; i < lettersFound.length; i++){
+        var letter = inputFields[lettersFound[i]].value
+        var letterCount = getLenght(thisWord, letter)
+        var foundLetterCount = getLenght(corLettersFound, letter)
+        console.log("word has " + letter + "  " + letterCount + " times")
+        if(letterCount == foundLetterCount){
+            gridFields[lettersFound[i]].style.backgroundColor = "#333D47"
+            gridFields[lettersFound[i]].style.borderColor = "#333D47"
+            continue
+        }
+        var corrLetterCount = getLenght(lettersCorrected, letter)
+        if(corrLetterCount + foundLetterCount == letterCount){
+            console.log(letter + " was wrong")
+            gridFields[lettersFound[i]].style.backgroundColor = "#333D47"
+            gridFields[lettersFound[i]].style.borderColor = "#333D47"
+            continue
+        }
+        lettersCorrected.push(letter)
+    }
     return hasMatch
 }
+
+function getLenght(array, item){
+    var count = 0 
+    for(var i = 0; i < array.length; i++){
+        var let = array[i]
+        console.log(i + " in " + array + " was " + let)
+        if(let.toUpperCase() == item.toUpperCase()){
+            count++
+        }
+    }
+    return count
+}
+
 function setCorrect(letter){
-    var let = inputFields[letter + currLine*5].style.value
-    gridFields[letter + currLine*5].style.backgroundColor = "#77b94a"
-    gridFields[letter + currLine*5].style.borderColor = "#77b94a"
-    inputFields[letter + currLine*5].style.color = "white"
+    var let = inputFields[letter + currLine*5].value
+    corLettersFound.push(let);
+    gridFields[letter + currLine*5].style.backgroundColor = "#008148"
+    gridFields[letter + currLine*5].style.borderColor = "#008148"
+    inputFields[letter + currLine*5].style.color = "#EBFEFF"
     lettersCorrect++
 }
 
 function setContains(letter){
     console.log(letter + ' contained')
-    gridFields[letter + currLine*5].style.backgroundColor = "#f4c31e"
-    gridFields[letter + currLine*5].style.borderColor = "#f4c31e"
-    inputFields[letter + currLine*5].style.color = "white"
+    var let = inputFields[letter + currLine*5].value
+    lettersFound.push(letter + currLine*5);
+    gridFields[letter + currLine*5].style.backgroundColor = "#B8D04E"
+    gridFields[letter + currLine*5].style.borderColor = "#B8D04E"
+    inputFields[letter + currLine*5].style.color = "#EBFEFF"
 }
     
 function setWrong(letter){
-    gridFields[letter + currLine*5].style.backgroundColor = "#a4aec4"
-    gridFields[letter + currLine*5].style.borderColor = "#a4aec4"
-    inputFields[letter + currLine*5].style.color = "white"
+    gridFields[letter + currLine*5].style.backgroundColor = "#333D47"
+    gridFields[letter + currLine*5].style.borderColor = "#333D47"
+    inputFields[letter + currLine*5].style.color = "#EBFEFF"
 }
 
 var myTimer = setInterval( function() {
