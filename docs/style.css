@@ -27,6 +27,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .word-in{
     background: none;
@@ -48,11 +49,13 @@ body{
     align-items: center;
     flex-direction: column;
     position: absolute;
-    height: 200px;
-    width: 400px;
-    border: 6px solid #dee1e9;
-    background: #fbfcff;
+    height: 150px;
+    width: 300px;
+    border: 6px solid #b0bac5;
+    background: #D0D6DD;
     border-radius: 20px;
+    color: #1D3549;
+    box-shadow: #393e4c 0px 5px 15px;
 }
 .popUp > p{
     margin-top: 3px;
@@ -71,8 +74,9 @@ body{
     height: 100px;
     display: none;
 }
-@media(max-width: 336px){
-    .grid-item{
-        width: 17.2%;
-    }
+
+#disclaimer{
+    color: #4e5464;
+    font-size: 15px;
+    text-align: center;
 }
