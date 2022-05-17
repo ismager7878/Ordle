@@ -63,6 +63,59 @@ body{
 .popUp > h2{
     margin-bottom: 3px;
 }
+.keyboard{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4em;
+    
+
+}
+.keyboard > div{
+    display: flex;
+    width: 100%;
+    gap:0.4em;
+    padding: 0 15px 0 15px;
+    max-width: 600px;
+}
+.keyboard > div > button{
+    font-size: 15px;
+    width: 100%;
+    height: 4vw;
+    min-width: 5px;
+    min-height: 35px;
+    color: #1D3549;
+    border-radius: 2px;
+    border: 1px solid #b0bac5;
+    background: #D0D6DD;
+    
+}
+button{
+    font-weight: 800;
+    
+}
+.popUp > button{
+    background-color: #1D3549;
+    color: #EBFEFF;
+    padding: 1em 2em 1em 2em;
+    border-radius: 10px;
+    border: 2px solid #b0bac5;
+}
+button:hover{
+    opacity: 80%;
+}
+button:active{
+    transform: scale(1.1);
+    opacity: 100%;
+}
+
+.special{
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #win{
     display: none;
 }

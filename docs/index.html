@@ -7,7 +7,8 @@
     <title>Ordle</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.typekit.net/hhy2sgg.css">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
 </head>
 <body>
     <h1>Ordle</h1>
@@ -15,49 +16,98 @@
     
     <section id="game-section">
         <div class="grid-container"> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div> 
-            <div class="grid-item"><input class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></div>
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div>
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div>
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div>
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div>
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div>
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div>
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div>
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div>
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div>
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div>
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div>
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div> 
+            <div class="grid-item"><p class="word-in" type="text" maxlength="1" onkeydown="return alphaOnlyAndShiftInput(event)"></p></div>
          </div>
          <div class="popUp" id="win">
              <h2>DU VANDT!!!!</h2>
              <p>Woooo Hooooo</p>
+             <button onclick="reset()">Nyt ord</button>
          </div>  
          <div class="popUp" id="lose">
             <h2>DU TABTE!!!!</h2>
             <p>Kom igen!!</p>
             <p id="gOrd"></p>
+            <button onclick="reset()">Nyt ord</button>
         </div>   
         <div class="popUp" id="wrong">
             <h2 style="margin: auto;">Det ikke et ord!!!</h2>
         </div>   
+    </section>
+    <section class="keyboard">
+        <div>
+            <button class="l-key key" onclick="keyClick(event)">q</button>
+            <button class="l-key key" onclick="keyClick(event)">w</button>
+            <button class="l-key key" onclick="keyClick(event)">e</button>
+            <button class="l-key key" onclick="keyClick(event)">r</button>
+            <button class="l-key key" onclick="keyClick(event)">t</button>
+            <button class="l-key key" onclick="keyClick(event)">y</button>
+            <button class="l-key key" onclick="keyClick(event)">u</button>
+            <button class="l-key key" onclick="keyClick(event)">i</button>
+            <button class="l-key key" onclick="keyClick(event)">o</button>
+            <button class="l-key key" onclick="keyClick(event)">p</button>
+            <button class="l-key key" onclick="keyClick(event)">å</button>
+        </div>
+        <div>
+            <button class="l-key key" onclick="keyClick(event)">a</button>
+            <button class="l-key key" onclick="keyClick(event)">s</button>
+            <button class="l-key key" onclick="keyClick(event)">d</button>
+            <button class="l-key key" onclick="keyClick(event)">f</button>
+            <button class="l-key key" onclick="keyClick(event)">g</button>
+            <button class="l-key key" onclick="keyClick(event)">h</button>
+            <button class="l-key key" onclick="keyClick(event)">j</button>
+            <button class="l-key key" onclick="keyClick(event)">k</button>
+            <button class="l-key key" onclick="keyClick(event)">l</button>
+            <button class="l-key key" onclick="keyClick(event)">æ</button>
+            <button class="l-key key" onclick="keyClick(event)">ø</button>
+        </div>
+        <div>
+            <button class="key special" style="min-width: 40px;" onclick="keyEnter(event)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13.92" height="10.38" viewBox="0 0 13.92 10.38">
+                    <path id="Icon_awesome-check" data-name="Icon awesome-check" d="M4.728,14.753.2,10.229a.7.7,0,0,1,0-.984l.984-.984a.7.7,0,0,1,.984,0L5.22,11.308l6.527-6.527a.7.7,0,0,1,.984,0l.984.984a.7.7,0,0,1,0,.984l-8,8A.7.7,0,0,1,4.728,14.753Z" transform="translate(0 -4.577)" fill="#1d3549"/>
+                  </svg>              
+              </button>
+            <button class="l-key key" onclick="keyClick(event)">z</button>
+            <button class="l-key key" onclick="keyClick(event)">x</button>
+            <button class="l-key key" onclick="keyClick(event)">c</button>
+            <button class="l-key key" onclick="keyClick(event)">v</button>
+            <button class="l-key key" onclick="keyClick(event)">b</button>
+            <button class="l-key key" onclick="keyClick(event)">n</button>
+            <button class="l-key key" onclick="keyClick(event)">m</button>
+            <button class="key special" style="min-width: 40px;" onclick="keyDelete(event)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26.947" height="16.168" viewBox="0 0 26.947 16.168">
+                    <path id="Icon_awesome-backspace" data-name="Icon awesome-backspace" d="M24.252,4.5H8.642a2.694,2.694,0,0,0-1.906.79L.394,11.631a1.347,1.347,0,0,0,0,1.905l6.342,6.342a2.7,2.7,0,0,0,1.905.789h15.61a2.7,2.7,0,0,0,2.695-2.695V7.195A2.7,2.7,0,0,0,24.252,4.5ZM20.686,15.2a.674.674,0,0,1,0,.953l-.952.952a.674.674,0,0,1-.953,0l-2.613-2.613L13.555,17.1a.674.674,0,0,1-.953,0l-.952-.952a.674.674,0,0,1,0-.953l2.613-2.613L11.65,9.971a.674.674,0,0,1,0-.953l.952-.952a.674.674,0,0,1,.953,0l2.613,2.613,2.613-2.613a.674.674,0,0,1,.953,0l.952.952a.674.674,0,0,1,0,.953l-2.613,2.613Z" transform="translate(0 -4.5)" fill="#1d3549"/>
+                  </svg>
+              </button>
+        </div>
     </section>
     <p id="disclaimer">Ordle.online er ikke tilknyttet "Wordle" af NYTimes</p>
     <script src="index.js"></script>

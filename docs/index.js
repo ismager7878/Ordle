@@ -15,7 +15,7 @@ var time
 var displayWrong
 var wrongTime = 500
 var wrong = document.getElementById("wrong")
-
+var lkey = document.getElementsByClassName("l-key")
 
 var client = new XMLHttpRequest();
 client.open('GET', 'OrdelListe.csv');
@@ -27,33 +27,35 @@ client.onreadystatechange = function() {
 }
 client.send();
 
-function alphaOnlyAndShiftInput(event) {
-    var key = event.keyCode
+document.addEventListener("keydown", function(e){
+    var key = e.keyCode
     console.log(key)
     console.log("current in: " + currIn);
     if(!done){
-        if((key >= 65 && key <= 90) || (key == 219 || key == 222 || key == 186)){
+        if((key >= 65 && key <= 90) || (key == 219 || key == 222 || key == 186|| key == 221 || key == 191)){
             if(currIn < 5){
                 
                 //console.log(currIn + " pressed")
                 gridFields[(currIn + currLine*5)].style.borderColor = "#333D47"
-                inputFields[(currIn + currLine*5)].focus()
+                inputFields[(currIn + currLine*5)].innerHTML = e.key
                 currIn++;
             }   
         }
         if(key == 8 && currIn > 0){
                 currIn--
-                inputFields[(currIn + currLine*5)].focus()
-                gridFields[(currIn + currLine*5)].style.borderColor = "#7D8EA1"
+                inputFields[(currIn + currLine*5)].innerHTML = ""
+                gridFields[(currIn + currLine*5)].style.borderColor = "#b0bac5"
         }
-        if(event.key == 'Enter' && currIn == 5 && currLine < 6){
+        if(e.key == 'Enter' && currIn == 5 && currLine < 6){
             lettersCorrect = 0
+            console.log("enter")
+            console.log(checkWord(getWord()))
             if(checkWord(getWord())==true){
                 if(currLine == 5){
                     if(!checkWin()){
                         document.getElementById("lose").style.display = "flex"
                         done = true
-                        document.getElementById("gOrd").innerHTML = "Ord at gætte: " + word
+                        document.getElementById("gOrd").innerHTML = "Ord at gætte: " + word.toUpperCase()
                     }
                 }else{
                     currLine++
@@ -68,7 +70,11 @@ function alphaOnlyAndShiftInput(event) {
         }
     }
     checkWin();
-    return ((key >= 65 && key <= 90) || (key == 219 || key == 222 || key == 186) || key == 8 || key == 'Enter')
+})
+
+function alphaOnlyAndShiftInput(event) {
+    
+    return ((key >= 65 && key <= 90) || (key == 219 || key == 222 || key == 186 || key == 221 || key == 191) || key == 8 || key == 'Enter')
 };
 function popUpTimer(){
     displayWrong = true
@@ -89,7 +95,7 @@ function checkWin(){
 function getWord(){
     var word = []
     for(var i = 0; i < 5; i++){
-        word.push(inputFields[(i + currLine*5)].value)
+        word.push(inputFields[(i + currLine*5)].innerHTML)
     } 
     return word.join("")
 }
@@ -124,7 +130,7 @@ function checkWord(word){
     }
     var lettersCorrected = []
     for(var i = 0; i < lettersFound.length; i++){
-        var letter = inputFields[lettersFound[i]].value
+        var letter = inputFields[lettersFound[i]].innerHTML
         var letterCount = getLenght(thisWord, letter)
         var foundLetterCount = getLenght(corLettersFound, letter)
         //console.log("word has " + letter + "  " + letterCount + " times")
@@ -158,29 +164,89 @@ function getLenght(array, item){
 }
 
 function setCorrect(letter){
-    var let = inputFields[letter + currLine*5].value
+    var let = inputFields[letter + currLine*5].innerHTML
     corLettersFound.push(let);
     gridFields[letter + currLine*5].style.backgroundColor = "#008148"
     gridFields[letter + currLine*5].style.borderColor = "#008148"
     inputFields[letter + currLine*5].style.color = "#EBFEFF"
     lettersCorrect++
+    for(var i = 0; i < lkey.length; i++){
+        if(lkey[i].innerHTML == inputFields[letter + currLine*5].innerHTML){
+            lkey[i].style.backgroundColor = "#008148"
+            lkey[i].style.borderColor = "#008148"
+            lkey[i].style.color = "#EBFEFF"
+        }
+    }
 }
 
 function setContains(letter){
     //console.log(letter + ' contained')
-    var let = inputFields[letter + currLine*5].value
+    var let = inputFields[letter + currLine*5].innerHTML
     lettersFound.push(letter + currLine*5);
     gridFields[letter + currLine*5].style.backgroundColor = "#B8D04E"
     gridFields[letter + currLine*5].style.borderColor = "#B8D04E"
     inputFields[letter + currLine*5].style.color = "#EBFEFF"
+    for(var i = 0; i < lkey.length; i++){
+        if(lkey[i].innerHTML == inputFields[letter + currLine*5].innerHTML && lkey[i].style.backgroundColor != "#008148" ){
+            lkey[i].style.backgroundColor = "#B8D04E"
+            lkey[i].style.borderColor = "#B8D04E"
+            lkey[i].style.color = "#EBFEFF"
+        }
+    }
 }
     
 function setWrong(letter){
     gridFields[letter + currLine*5].style.backgroundColor = "#333D47"
     gridFields[letter + currLine*5].style.borderColor = "#333D47"
     inputFields[letter + currLine*5].style.color = "#EBFEFF"
+    for(var i = 0; i < lkey.length; i++){
+        if(lkey[i].innerHTML == inputFields[letter + currLine*5].innerHTML){
+            lkey[i].style.backgroundColor = "#333D47"
+            lkey[i].style.borderColor = "#333D47"
+            lkey[i].style.color = "#EBFEFF"
+        }
+    }
+}
+function keyClick(event){
+    if(currIn < 5){
+        key = event.path[0].innerHTML
+        gridFields[(currIn + currLine*5)].style.borderColor = "#333D47"
+        inputFields[(currIn + currLine*5)].innerHTML = key
+        currIn++;
+    }
+}
+    
+function keyEnter(event){
+    lettersCorrect = 0
+    if(checkWord(getWord())==true){
+        if(currLine == 5){
+            if(!checkWin()){
+                document.getElementById("lose").style.display = "flex"
+                done = true
+                document.getElementById("gOrd").innerHTML = "Ord at gætte: " + word
+            }
+        }else{
+            currLine++
+            currIn = 0
+        }      
+    }else{
+        popUpTimer()
+    }
+            
 }
 
+function keyDelete(event){
+    if(currIn > 0){
+        currIn--
+        inputFields[(currIn + currLine*5)].innerHTML = ""
+        gridFields[(currIn + currLine*5)].style.borderColor = "#7D8EA1"
+    }
+    
+}
+
+function reset(){
+    location.reload()
+}
 var myTimer = setInterval( function() {
     if(displayWrong){
         var newDate = new Date()
@@ -190,11 +256,5 @@ var myTimer = setInterval( function() {
             wrong.style.display = "none"
             displayWrong = false
         }
-    }
-    if(currIn < 5){
-        inputFields[(currIn + currLine*5)].focus()
-    }
-    if(currIn == 5){
-        inputFields[(4 + currLine*5)].focus()
     }
   }, 1 )
