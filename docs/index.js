@@ -209,7 +209,7 @@ function setWrong(letter){
 }
 function keyClick(event){
     if(currIn < 5){
-        key = event.path[0].innerHTML
+        key = event.composedPath()[0].innerHTML
         gridFields[(currIn + currLine*5)].style.borderColor = "#333D47"
         inputFields[(currIn + currLine*5)].innerHTML = key
         currIn++;
