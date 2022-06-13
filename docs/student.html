@@ -42,6 +42,7 @@ font-style: normal;
             display: flex;
             justify-content: center;
             gap: 1em;
+            margin-top: 1em;
         } 
         button{
             background-color: #233F7B;
@@ -53,6 +54,7 @@ font-style: normal;
             font-family: forma-djr-display, sans-serif;
             font-weight: 700;
             letter-spacing: 2px;
+            font-size:calc(5px + 1vw);
             border: none;
             border-radius: 6px;
         }
@@ -71,12 +73,13 @@ font-style: normal;
 <body>
     <div class="head">
         <h1>Studenter Nedtælling!!!!</h1>
-        <div class="buttons">
-            <button onclick="jk()" id="jk">Josh og Kasper</button>
-            <button onclick="aa()" id="aa">Asger og Barbre</button>
-        </div>
+        
     <div class="time">
         <h2 id="tid">0 Dage 0 Uger</h2>
+    </div>
+    <div class="buttons">
+        <button onclick="jk()" id="jk">Josh og Kasper</button>
+        <button onclick="aa()" id="aa">Asger og Barbre</button>
     </div>
     </div>
     
