@@ -32,7 +32,7 @@ font-style: normal;
             font-size: 2vw;
         }
         h2{
-            font-size: 10vw;
+            font-size: 7.5vw;
         }
         .head > h1, .time > h2, .time > h3{
             margin-top: 5px;
@@ -75,28 +75,34 @@ font-style: normal;
         <h1>Studenter Nedtælling!!!!</h1>
         
     <div class="time">
-        <h2 id="tid">0 Dage 0 Uger</h2>
+        <h2 id="tid">0 Dage 0 Timer 0 Minutter</h2>
     </div>
     <div class="buttons">
         <button onclick="jk()" id="jk">Josh og Kasper</button>
-        <button onclick="aa()" id="aa">Asger og Barbre</button>
+        <button onclick="aa()" id="aa">Barbre</button>
+        <button onclick="as()" id="as">Asger</button>
     </div>
     </div>
     
     <script>
-        var date = new Date("June 21, 2022 23:59:59");
+        var date = new Date("June 21, 2022 10:01:00");
         var dateTime = date.getTime()
         console.log(date);
+        var minutte = 1000 * 60
+        var hour = 1000 * 60 * 60;
+        var week = day * 7;
         var day = 1000 * 60 * 60 * 24;
         var week = day * 7;
         var aabutton = document.getElementById("aa")
+        var asbutton = document.getElementById("as")
         var jkbutton = document.getElementById("jk")
 
         function jk(){
             aabutton.style.backgroundColor = "#233F7B"
             jkbutton.style.backgroundColor = "#2E53A3"
+            asbutton.style.backgroundColor = "#233F7B"
 
-            date = new Date("June 22, 2022 23:59:59")
+            date = new Date("June 22, 2022 11:31:00")
             dateTime = date.getTime()
             timeUpdate()
         }
@@ -104,8 +110,20 @@ font-style: normal;
         function aa(){
             jkbutton.style.backgroundColor = "#233F7B"
             aabutton.style.backgroundColor = "#2E53A3"
+            asbutton.style.backgroundColor = "#233F7B"
 
-            date = new Date("June 21, 2022 23:59:59")
+            date = new Date("June 21, 2022 10:01:00")
+            dateTime = date.getTime()
+            timeUpdate()
+        }
+
+        function as(){
+            jkbutton.style.backgroundColor = "#233F7B"
+            aabutton.style.backgroundColor = "#233F7B"
+            asbutton.style.backgroundColor = "#2E53A3"
+
+
+            date = new Date("June 21, 2022 15:51:00")
             dateTime = date.getTime()
             timeUpdate()
         }
@@ -118,9 +136,15 @@ font-style: normal;
             var weeks = Math.floor((dateTime - tNow) / week);
             
             var days = Math.floor((dateTime - tNow) / day) - weeks * 7
+
+            var hours = Math.floor((dateTime - tNow) / hour) - days * 24;
+            
+            var minuttes = Math.floor((dateTime - tNow) / minutte) - hours * 60 - days * 24 * 60;
             
             var sday = ' Dage ';
             var sweek = ' Uger ';
+            var sTime = ' Timer ';
+            var sMinut = ' Minutter ';
             
             if(days == 1){
                 sday = ' Dag '
@@ -129,7 +153,17 @@ font-style: normal;
             if(weeks == 1){
                 sweek = ' Uge '
             }
-            document.getElementById("tid").innerHTML =  Math.floor(weeks) + sweek + Math.floor(days) + sday 
+            if(hours == 1){
+                sTime = ' Time '
+            }
+            if(minuttes == 1){
+                sMinut = ' Minut '
+            }
+            
+            document.getElementById("tid").innerHTML = days + sday + hours + sTime + minuttes + sMinut
+            if(days == 0){
+                document.getElementById("tid").innerHTML = hours + sTime + minuttes + sMinut
+            }
         }
 
         var int = window.setInterval(timeUpdate, 1000)
